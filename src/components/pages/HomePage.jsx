@@ -1,25 +1,30 @@
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { DailyTasksCard } from "@/components/cards/Agenda";
+import { RecentCard } from "@/components/cards/Recents";
+import { Button } from "@/components/ui/button";
 
 export function HomePage() {
     return (
-        <div className="grid gap-4">
-            <Card>
-                <CardHeader>
-                    <CardTitle>Resumen de Actividad</CardTitle>
-                </CardHeader>
-                <CardContent>
-                    Aquí irá el resumen de tus proyectos, tareas o calendario.
-                </CardContent>
-            </Card>
+        <div className="p-6 space-y-4">
+            <div className="flex items-center justify-between p-4 border border-gray-100 rounded-lg">
+                <h1 className="text-2xl font-bold">Home page</h1>
+                <Button
+                    variant="outline"
+                    size="sm"
+                    className="flex items-center gap-2 bg-black text-white hover:bg-gray-800"
+                >
+                    Gestionar Cards
+                </Button>
+            </div>
 
-            <Card>
-                <CardHeader>
-                    <CardTitle>Notificaciones</CardTitle>
-                </CardHeader>
-                <CardContent>
-                    Aquí irán los mensajes o eventos recientes.
-                </CardContent>
-            </Card>
+
+            <div className="flex gap-4">
+                <div className="flex-1">
+                    <RecentCard />
+                </div>
+                <div className="flex-1">
+                    <DailyTasksCard />
+                </div>
+            </div>
         </div>
-    )
+    );
 }
